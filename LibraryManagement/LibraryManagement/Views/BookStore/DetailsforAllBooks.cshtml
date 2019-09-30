@@ -1,0 +1,63 @@
+﻿@model LibraryManagement.Models.BookStore
+
+@{
+    ViewBag.Title = "DetailsforAllBooks";
+}
+
+<h2>Enjoy Reading</h2>
+
+<div  style="font-family:'Book Antiqua'">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Image</label>
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ImagePath)" height="100" width="100" />
+        </dd>
+        <hr />
+        <dt>
+            <label>Title</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            <label>Serial No</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            <label>Author</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            <label>Publisher</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+        <hr />
+        <dt>
+            <label>Book</label>
+        </dt>
+
+        <dd>
+            <iframe width="1000" height="1260" src="@Url.Content(Model.BookPath)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "AllBooks")
+</p>

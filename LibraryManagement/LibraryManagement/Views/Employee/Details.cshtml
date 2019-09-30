@@ -1,0 +1,57 @@
+﻿@model LibraryManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="font-family:'Book Antiqua'">Employee Details</h2>
+
+<div style="font-family:'Book Antiqua'">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CellPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+    @Html.ActionLink("Back to List", "Tab", "BookStore")
+</p>

@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simple Gray, Professional free website template</title>
+    <meta name="keywords" content="free templates, website templates, CSS, XHTML" />
+    <meta name="description" content="Simple Gray - Professional free XHTML/CSS template provided by templatemo.com" />
+    <link href="~/CssForCustomLayout/style.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        function clearText(field) {
+            if (field.defaultValue == field.value) field.value = '';
+            else if (field.value == '') field.value = field.defaultValue;
+        }
+    </script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+
+    <!-- Top Menu Start -->
+    <div id="templatemo_header_wrapper">
+        <div id="templatemo_header">
+
+            <div id="site_logo"></div>
+
+            <div id="templatemo_menu">
+                <div id="templatemo_menu_left"></div>
+                <ul>
+                    <li>@Html.ActionLink("Manage", "ViewAll", "BookStore")</li>
+                    <li>@Html.ActionLink("Add Book", "AddorEdit", "BookStore")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of Top Menu-->
+    <!-- Banner Start -->
+    <div id="templatemo_banner_wrapper">
+        <div id="templatemo_banner">
+
+            <div id="templatemo_banner_image">
+                <div id="templatemo_banner_image_wrapper">
+                    <img src="~/images/chair-clouds-dawn.jpg" alt="image 1" />
+                </div>
+            </div>
+
+            <div id="templatemo_banner_content">
+                <div class="header_01">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+                <p>Aliquam dignissim elementum est sit amet iaculis. Integer pretium ultricies risus, condimentum molestie odio euismod vitae. </p>
+            </div>
+
+            <div class="cleaner"></div>
+        </div>
+    </div>
+    <!-- End of Banner -->
+
+
+    <div id="templatemo_content_wrapper">
+        <div id="templatemo_content">
+
+            <!-- Content Area -->
+
+            <div class="container body-content">
+                @RenderBody()
+                <br />
+                <br />
+                <br />
+                <hr />
+            </div>
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Code First Project</p>
+            </footer>
+
+
+            <!-- End of Content Area -->
+
+
+            <div class="cleaner"></div>
+        </div>
+    </div>
+</body>
+</html>

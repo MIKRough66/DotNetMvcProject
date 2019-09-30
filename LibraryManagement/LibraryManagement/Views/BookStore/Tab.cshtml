@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Tab";
+}
+
+<h2>Admin Panel</h2>
+
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#firstTab">Manage Book</a></li>
+    <li><a data-toggle="tab" href="#secondTab">Add New Book</a></li>
+    <li><a data-toggle="tab" href="#thirdTab">Role</a></li>
+    <li><a data-toggle="tab" href="#forthTab">Manage Employee</a></li>
+</ul>
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane fade in active">@Html.Action("ViewAll")</div>
+    <div id="secondTab" class="tab-pane fade in">@Html.Action("AddorEdit")</div>
+    <div id="thirdTab" class="tab-pane fade in">@Html.Action("Index", "Role")</div>
+    <div id="forthTab" class="tab-pane fade in">@Html.Action("Index", "Employee")</div>
+</div>
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        });
+
+    </script>
+}

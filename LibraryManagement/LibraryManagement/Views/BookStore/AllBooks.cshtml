@@ -1,0 +1,71 @@
+﻿
+@model PagedList.IPagedList<LibraryManagement.Models.BookStore>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "AllBooks";
+}
+
+<h2>Book List</h2>
+
+
+@using (Html.BeginForm("AllBooks", "BookStore", FormMethod.Get))
+{
+    <p>
+        @*===== For Filtering ==== *@
+        Search Book by Title : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+
+}
+
+
+<table class="table table-responsive table-hover"  style="font-family:'Book Antiqua'">
+    <tr>
+        <th>
+            @Html.ActionLink("Title", "AllBooks", new { sortOrder = ViewBag.NameSortParm })  @* ===== For Sorting by Name ==== *@
+        </th>
+        <th>
+            <label> Serial Number  </label>
+        </th>
+        <th>
+            <label> Author  </label>
+        </th>
+        <th>
+            <label> Publisher  </label>
+        </th>
+        <th>
+            <label> Image  </label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                <img src="@Url.Content(item.ImagePath)" height="100" width="100" />
+            </td>
+            <td>
+                 @Html.ActionLink("Read", "DetailsforAllBooks", new { id=item.BookStoreID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br /> @* ==== For Paging ====*@
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("AllBooks", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
